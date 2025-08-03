@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Shreesha V Jain - Profile</title>
+
+  <!-- ✅ Google Font (Orbitron) -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+
+  <!-- ✅ Font Awesome for Instagram icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* 🌈 Creative Animated Background */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      color: #fff;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      background: rgba(0, 0, 0, 0.7); /* Glass effect */
+      padding: 30px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      border-radius: 12px;
+    }
+
+    h1, h2 {
+      text-align: center;
+      margin: 10px 0;
+      animation: slideIn 1.2s ease-out;
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateY(-50px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    /* 🖼️ Photo Fade-in Effect */
+    .profile-photo {
+      width: 130px;
+      height: 160px;
+      object-fit: cover;
+      object-position: top;
+      border-radius: 4px;
+      border: 3px solid #fff;
+      display: block;
+      margin: 20px auto;
+      animation: fadeInPhoto 1.5s ease-in;
+    }
+
+    @keyframes fadeInPhoto {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .details {
+      font-size: 18px;
+      line-height: 1.6;
+      text-align: center;
+      margin-top: 20px;
+      color: #ddd;
+    }
+
+    .details p {
+      margin: 10px 0;
+    }
+
+    .contact {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .insta-btn {
+      text-decoration: none;
+      color: white;
+      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      padding: 10px 25px;
+      border-radius: 30px;
+      font-size: 18px;
+      font-weight: bold;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: 0.3s;
+    }
+
+    .insta-btn i {
+      font-size: 20px;
+    }
+
+    .insta-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px #dc2743;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Shreesha V Jain</h1>
+    <h2>Father's Name: Vinay Ariga</h2>
+
+    <img src="myphoto.jpg" alt="My Photo" class="profile-photo">
+
+    <div class="details">
+      <p><strong>Class 1 to 10:</strong> Sri Ramakrishna Vidyanikethana, Gopala, Shivamogga</p>
+      <p><strong>Class 11 & 12:</strong> PACE PU College, Shivamogga</p>
+      <p><strong>Engineering:</strong> NMAM Institute of Technology, Nitte</p>
+    </div>
+
+    <div class="contact">
+      <a href="https://instagram.com/jainshreeshav" target="_blank" class="insta-btn">
+        <i class="fab fa-instagram"></i> Instagram
+      </a>
+    </div>
+  </div>
+</body>
+</html>

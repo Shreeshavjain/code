@@ -1,0 +1,8 @@
+services:
+  - type: web
+    name: chatloop
+    env: python
+    buildCommand: "pip install -r chatloop/requirements.txt"
+    startCommand: "python chatloop/app.py"
+    region: singapore
+    plan: free
