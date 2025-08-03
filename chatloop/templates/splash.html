@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ChatLoop - Splash</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #f09433, #dc2743, #cc2366, #833ab4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      animation: fadeOut 1s ease 2.8s forwards;
+    }
+
+    .logo-container {
+      text-align: center;
+      animation: zoomIn 2s ease;
+    }
+
+    .logo-container img {
+      width: 120px;
+      animation: spin 3s linear infinite;
+    }
+
+    @keyframes zoomIn {
+      0% { transform: scale(0); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+  </style>
+
+  <script>
+    // Redirect after 3 seconds
+    setTimeout(() => {
+      window.location.href = "/";
+    }, 3000);
+  </script>
+</head>
+<body>
+  <div class="logo-container">
+    <img src="{{ url_for('static', filename='images/chatloop-logo.png') }}" alt="ChatLoop Logo">
+  </div>
+</body>
+</html>

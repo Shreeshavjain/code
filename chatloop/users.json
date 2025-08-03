@@ -1,0 +1,40 @@
+{
+  "shreesha": {
+    "password": "12345678",
+    "profile_pic": "profile1.jpg",
+    "friends": ["ramesh"],
+    "messages": {
+      "ramesh": [
+        {
+          "sender": "shreesha",
+          "text": "Hi Ramesh!",
+          "timestamp": "2025-08-01 15:30"
+        },
+        {
+          "sender": "ramesh",
+          "text": "Hey Shreesha!",
+          "timestamp": "2025-08-01 15:31"
+        }
+      ]
+    }
+  },
+  "ramesh": {
+    "password": "87654321",
+    "profile_pic": "profile2.jpg",
+    "friends": ["shreesha"],
+    "messages": {
+      "shreesha": [
+        {
+          "sender": "shreesha",
+          "text": "Hi Ramesh!",
+          "timestamp": "2025-08-01 15:30"
+        },
+        {
+          "sender": "ramesh",
+          "text": "Hey Shreesha!",
+          "timestamp": "2025-08-01 15:31"
+        }
+      ]
+    }
+  }
+}

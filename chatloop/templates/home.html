@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Home - Chat Loop</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="home-container">
+
+    <!-- 🔝 Top Bar -->
+    <div class="top-bar">
+      <div class="logo-title">
+        <img src="{{ url_for('static', filename='images/chatloop-logo.png') }}" alt="Chat Loop Logo" class="logo" style="width: 40px;">
+        <h2 style="margin-left: 10px;">Chat Loop</h2>
+      </div>
+      <div class="top-icons">
+        <a href="#"><img src="{{ url_for('static', filename='images/profile-icon.png') }}" alt="Profile" class="icon"></a>
+        <a href="#"><img src="{{ url_for('static', filename='images/notification-icon.png') }}" alt="Notifications" class="icon"></a>
+      </div>
+    </div>
+
+    <!-- 🔍 Search Bar -->
+    <form method="get" action="/search" class="search-bar">
+      <input type="text" name="q" placeholder="Search users..." required>
+      <button type="submit">Search</button>
+    </form>
+
+    <!-- 👥 Suggestions Section -->
+    <div class="suggestions">
+      <h3>Suggested Users</h3>
+      <div class="suggestion-scroll">
+        {% for user, data in users.items() %}
+          {% if user != username %}
+            <div class="suggestion-card">
+              <img src="{{ url_for('static', filename='images/' + data.get('profile_pic', 'default.jpg')) }}" alt="{{ user }}" class="suggestion-pic">
+              <span>@{{ user }}</span>
+              <form action="/chat_with/{{ user }}" method="get" style="display:inline;">
+                <button type="submit">Chat</button>
+              </form>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- ✅ Friend List -->
+    <div class="friend-list">
+      <h3>Your Friends</h3>
+      <ul>
+        {% for friend in users[username]['friends'] %}
+          <li>@{{ friend }}</li>
+        {% else %}
+          <li>No friends added yet.</li>
+        {% endfor %}
+      </ul>
+    </div>
+
+  </div>
+</body>
+</html>

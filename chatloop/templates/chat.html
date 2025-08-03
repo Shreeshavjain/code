@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chat - Chat Loop</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="chat-container">
+
+    <!-- 🔝 Chat Header -->
+    <div class="top-bar">
+      <div class="logo-title">
+        <img src="{{ url_for('static', filename='images/chatloop-logo.png') }}" alt="Chat Loop Logo" class="logo" style="width: 40px;">
+        <h2 style="margin-left: 10px;">Chat with @{{ friend }}</h2>
+      </div>
+      <div class="top-icons">
+        <a href="#"><img src="{{ url_for('static', filename='images/profile-icon.png') }}" alt="Profile" class="icon"></a>
+      </div>
+    </div>
+
+    <!-- 🔍 Search within Chat -->
+    <form class="search-bar" method="get" action="/chat_with/{{ friend }}">
+      <input type="text" name="q" placeholder="Search messages..." required>
+      <button type="submit">Search</button>
+    </form>
+
+    <!-- 💬 Chat Messages -->
+    <div class="chat-messages">
+      {% for msg in messages %}
+        {% if not request.args.q or request.args.q.lower() in msg.text.lower() %}
+          <div class="message {{ 'right' if msg.sender == username else 'left' }}">
+            <div>{{ msg.text }}</div>
+            <div class="timestamp">{{ msg.timestamp }}</div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <!-- ✏️ Message Input -->
+    <form class="chat-input" method="post">
+      <input type="text" name="message" placeholder="Type a message..." required>
+      <button type="submit">Send</button>
+    </form>
+
+  </div>
+
+</body>
+</html>

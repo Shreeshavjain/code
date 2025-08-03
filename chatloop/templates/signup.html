@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sign Up - Chat Loop</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="signup-container">
+    <img src="{{ url_for('static', filename='images/chatloop-logo.png') }}" alt="Chat Loop Logo" class="logo">
+    <h1>Join Chat Loop</h1>
+
+    <form action="/register" method="post" enctype="multipart/form-data" class="signup-form">
+      <input type="text" name="username" placeholder="Choose a username" required>
+
+      <input type="password" name="password" placeholder="Create 8-digit password" minlength="8" maxlength="8" required>
+
+      <input type="password" name="confirm_password" placeholder="Confirm password" minlength="8" maxlength="8" required>
+
+      <label class="upload-label">Upload Profile Photo:</label>
+      <input type="file" name="profile_photo" accept="image/*" required>
+
+      <label class="show-password">
+        <input type="checkbox" onclick="togglePassword()"> Show Password
+      </label>
+
+      <button type="submit">Sign Up</button>
+
+      <p class="signup-link">Already have an account? <a href="/">Login</a></p>
+    </form>
+  </div>
+
+  <script>
+    function togglePassword() {
+      const fields = document.querySelectorAll('input[type="password"]');
+      fields.forEach(field => {
+        field.type = field.type === 'password' ? 'text' : 'password';
+      });
+    }
+  </script>
+
+</body>
+</html>

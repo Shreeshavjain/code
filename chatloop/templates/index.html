@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - Chat Loop</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="login-container">
+    <img src="{{ url_for('static', filename='images/chatloop-logo.png') }}" alt="Chat Loop Logo" class="logo">
+    <h1>Chat Loop</h1>
+
+    <form action="/home" method="post" class="login-form">
+      <input type="text" name="username" placeholder="Username" required>
+
+      <input type="password" name="password" placeholder="Password (8 digits)" minlength="8" maxlength="8" required>
+
+      <label class="show-password">
+        <input type="checkbox" onclick="togglePassword()"> Show Password
+      </label>
+
+      <button type="submit">Login</button>
+
+      <p class="signup-link">Don't have an account? <a href="/signup">Sign up</a></p>
+    </form>
+  </div>
+
+  <script>
+    function togglePassword() {
+      const pwd = document.querySelector('input[name="password"]');
+      pwd.type = pwd.type === "password" ? "text" : "password";
+    }
+  </script>
+
+</body>
+</html>
